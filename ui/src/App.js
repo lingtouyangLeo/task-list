@@ -1,41 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import { AddTaskForm } from "./components/AddTaskForm";
-import { Task } from "./components/Task";
-import axios from "axios";
-import { API_URL } from "./utils";
+import logo from './logo.svg';
+import './App.css';
 
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
-
-export default function App() {
-  const [tasks, setTasks] = useState([]);
-
-  const fetchTasks = async () => {
-    try {
-      const { data } = await axios.get(API_URL);
-
-      setTasks(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    fetchTasks();
-  }, []);
-
+function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <AddTaskForm fetchTasks={fetchTasks} />
-      {tasks.map((task) => (
-        <Task task={task} key={task.id} fetchTasks={fetchTasks} />
-      ))}
-    </ThemeProvider>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
+
+export default App;
