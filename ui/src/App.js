@@ -34,7 +34,7 @@ function App() {
       <div className='app-container'>
         <AddTaskForm fetchTasks={fetchTasks}/>
         {tasks.map((task) => (
-          <Task task={task} key={task.id} fetchTasks/>
+          <Task task={task} key={task.id} fetchTasks={fetchTasks}/>
         ))}
       </div>
     </ThemeProvider>
