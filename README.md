@@ -1,6 +1,6 @@
 # task-list
 
-simple web app using AWS dynamoDB as Database, AWS Amplify to host React app, AWS lambda to host API , components are using pkgs from MUI
+simple web app using AWS dynamoDB as Database, AWS Amplify to host React app, AWS lambda to host API , components are using pkgs from MUI, express as 
 
 ## Material UI
 
