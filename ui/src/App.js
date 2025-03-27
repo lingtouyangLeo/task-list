@@ -14,6 +14,7 @@ const darkTheme = createTheme({
 
 function App() {
   const [tasks, settasks] = useState([]);
+  
   const fetchTasks = async () => {
     try {
       const { data } = await axios.get(API_URL);
@@ -21,10 +22,12 @@ function App() {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
+
   useEffect(() => {
     fetchTasks();
   }, []);
+
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />

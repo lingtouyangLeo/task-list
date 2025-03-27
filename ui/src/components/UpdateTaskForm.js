@@ -8,8 +8,8 @@ import { API_URL } from '../utils';
 export const UpdateTaskForm = (
     { fetchTasks, isDialogOpen, setIsDialogOpen, task }
 ) => {
-    const { id, name, completed } = task
-    const [taskName, setTaskName] = useState("")
+    const { id, name, completed } = task;
+    const [taskName, setTaskName] = useState("");
     const handleUpdateTask = async () => {
         try {
             await axios.put(API_URL, {id, name: taskName, completed});
@@ -18,13 +18,14 @@ export const UpdateTaskForm = (
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
     useEffect(() => {
         if (isDialogOpen) {
             setTaskName(name || "")
         }
-    }, [isDialogOpen, name])
+    }, [isDialogOpen, name]);
+    
   return (
     <Dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
         <DialogTitle>Edit Task</DialogTitle>

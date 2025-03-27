@@ -7,16 +7,17 @@ import { API_URL } from '../utils';
 
 export const AddTaskForm = () => {
 
-    const [newTask, setnewTask] = useState("")
+    const [newTask, setnewTask] = useState("");
     const addNewTask = async ({fetchTasks}) => {
         try {
             await axios.post(API_URL, {name: newTask, completed: false});
             await fetchTasks();
-            setnewTask("")
+            setnewTask("");
         } catch (err) {
-            console.log(err)
+            console.log(err);
         }
-    }
+    };
+    
     return (
         <div className='add-task-form'>
             <Typography align="center" variant="h2" paddingTop={2} paddingBottom={2} sx={{ width: "100%" }}>
