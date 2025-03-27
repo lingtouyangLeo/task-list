@@ -5,18 +5,19 @@ import AddIcon from "@mui/icons-material/Add";
 import axios from 'axios';
 import { API_URL } from '../utils';
 
-export const AddTaskForm = () => {
-
+export const AddTaskForm = ({ fetchTasks }) => {
     const [newTask, setnewTask] = useState("");
-    const addNewTask = async ({fetchTasks}) => {
-        try {
-            await axios.post(API_URL, {name: newTask, completed: false});
-            await fetchTasks();
-            setnewTask("");
-        } catch (err) {
-            console.log(err);
-        }
+  
+    const addNewTask = async () => {
+      try {
+        await axios.post(API_URL, { name: newTask, completed: false });
+        await fetchTasks();           
+        setnewTask("");                 
+      } catch (err) {
+        console.log(err);
+      }
     };
+  
     
     return (
         <div className='add-task-form'>
